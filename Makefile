@@ -20,7 +20,7 @@ run_app:
 	ls -a pages_files
 	ls -a pages_files/assets
 
-	find pages_files -exec sed -i.bak 's|_dash-component-suites|flight-ops\\/_dash-component-suites|g' {} \;
+	find pages_files -exec sed -i.bak 's|_dash-component-suites|flight-ops/_dash-component-suites|g' {} \;
 	find pages_files -exec sed -i.bak 's|_dash-layout|flight-ops/_dash-layout.json|g' {} \;
 	find pages_files -exec sed -i.bak 's|_dash-dependencies|flight-ops/_dash-dependencies.json|g' {} \;
 	find pages_files -exec sed -i.bak 's|_reload-hash|flight-ops/_reload-hash|g' {} \;
