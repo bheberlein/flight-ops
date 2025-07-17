@@ -16,7 +16,7 @@ run_app:
 	wget -r http://127.0.0.1:8050/_dash-component-suites/plotly/package_data/plotly.min.js
 
 	mkdir -p pages_files/assets
-	mv 127.0.0.1:8050 pages_files
+	mv 127.0.0.1:8050/* pages_files
 	ls -a pages_files
 	ls -a pages_files/assets
 
