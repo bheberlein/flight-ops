@@ -6,10 +6,12 @@ run_app:
 	wget -r http://127.0.0.1:8050/_dash-dependencies
 
 	wget -r -np -nH --cut-dirs=1 http://127.0.0.1:8050/_dash-component-suites/
+	wget -r -np -nH --cut-dirs=1 http://127.0.0.1:8050/assets/
 
 	mkdir -p pages_files
 	mv 127.0.0.1:8050/* pages_files/
 	ls -a pages_files
+	ls -a assets
 
 	for pattern in _dash-component-suites _dash-layout _dash-dependencies _reload-hash _dash-update-component assets; do \
 	    find pages_files -type f -exec sed -i.bak "s|$$pattern|flight-ops/$$pattern|g" {} \; ; \
