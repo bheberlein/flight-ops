@@ -15,9 +15,6 @@ run_app:
 	    find pages_files -type f -exec sed -i.bak "s|$$pattern|flight-ops/$$pattern|g" {} \; ; \
 	done
 
-	mv pages_files/_dash-layout pages_files/_dash-layout.json
-	mv pages_files/_dash-dependencies pages_files/_dash-dependencies.json
-
 	kill -9 $$(cat myapp.pid)
 
 clean_dirs:
