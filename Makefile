@@ -7,6 +7,7 @@ run_app:
 
 	wget -r -np -nH --cut-dirs=1 http://127.0.0.1:8050/_dash-component-suites/
 	wget -r -np -nH --cut-dirs=1 http://127.0.0.1:8050/assets/
+	ls 127.0.0.1:8050/assets/
 
 	mkdir -p pages_files
 	mv 127.0.0.1:8050/* pages_files/
