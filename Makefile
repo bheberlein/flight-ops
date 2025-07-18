@@ -7,8 +7,8 @@ run_app:
 
 	wget -r -np -nH --cut-dirs=1 http://127.0.0.1:8050/_dash-component-suites/
 
-	mkdir -p pages_files/assets
-	mv 127.0.0.1:8050/* pages_files
+	mkdir -p pages_files
+	mv 127.0.0.1:8050/* pages_files/
 	ls -a pages_files
 
 	for pattern in _dash-component-suites _dash-layout _dash-dependencies _reload-hash _dash-update-component assets; do \
@@ -17,6 +17,7 @@ run_app:
 
 	mv pages_files/_dash-layout pages_files/_dash-layout.json
 	mv pages_files/_dash-dependencies pages_files/_dash-dependencies.json
+	mv assets/* pages_files/assets/
 
 	kill -9 $$(cat myapp.pid)
 
