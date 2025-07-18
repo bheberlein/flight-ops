@@ -13,7 +13,7 @@ run_app:
 	ls -a pages_files/assets
 
 	for pattern in _dash-component-suites _dash-layout _dash-dependencies _reload-hash _dash-update-component assets; do \
-	    find pages_files -type f -exec sed -i.bak "s|$$pattern|flight-ops/$$pattern|g" {} \; ; \
+	    find pages_files -type f -exec sed -i.bak "s|$$pattern|flight-ops/pages_files/$$pattern|g" {} \; ; \
 	done
 
 	mv pages_files/_dash-layout pages_files/_dash-layout.json
