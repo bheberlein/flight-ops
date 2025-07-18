@@ -1,6 +1,6 @@
 run_app:
 	python3 app.py &
-	echo $! > my_app.pid &
+	process=$!
 	sleep 30
 
 	wget -r http://127.0.0.1:8050/
@@ -24,7 +24,7 @@ run_app:
 	mv pages_files/_dash-layout pages_files/_dash-layout.json
 	mv pages_files/_dash-dependencies pages_files/_dash-dependencies.json
 
-	kill -9 $(cat my_app.pid) && rm my_app.pid
+	kill -9 $process
 
 clean_dirs:
 	ls
