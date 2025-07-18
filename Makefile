@@ -1,5 +1,5 @@
 run_app:
-	python3 app.py & echo $! > myapp.pid & sleep 30
+	python3 app.py & echo $$! > myapp.pid & sleep 30
 
 	wget -r http://127.0.0.1:8050/
 	wget -r http://127.0.0.1:8050/_dash-layout
@@ -12,20 +12,14 @@ run_app:
 	ls -a pages_files
 	ls -a pages_files/assets
 
-	for pattern in \
-	  _dash-component-suites \
-	  _dash-layout \
-	  _dash-dependencies \
-	  _reload-hash \
-	  _dash-update-component \
-	  assets; do \
+	for pattern in _dash-component-suites _dash-layout _dash-dependencies _reload-hash _dash-update-component assets; do \
 	    find pages_files -type f -exec sed -i.bak "s|$$pattern|flight-ops/$$pattern|g" {} \; ; \
 	done
 
 	mv pages_files/_dash-layout pages_files/_dash-layout.json
 	mv pages_files/_dash-dependencies pages_files/_dash-dependencies.json
 
-	kill -9 $(cat myapp.pid)
+	kill -9 $$(cat myapp.pid)
 
 clean_dirs:
 	ls
